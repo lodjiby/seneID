@@ -155,6 +155,14 @@ jobs:
           name: seneid-distribution
           path: dist
 
+      - name: Verify build inputs
+        run: |
+          set -euo pipefail
+          test -f Containerfile
+          test -f "${DIST_DIR}/${ARCHIVE_NAME}"
+          ls -lh Containerfile "${DIST_DIR}/${ARCHIVE_NAME}"
+
+          
       - name: Install Podman
         run: |
           sudo apt-get update
@@ -188,10 +196,9 @@ jobs:
 
           IMAGE="${REGISTRY}/${IMAGE_NAME}:${{ steps.image.outputs.tag }}"
 
-          echo "Building ${IMAGE}"
-
           podman build \
             --arch arm64 \
+            --file Containerfile \
             --tag "${IMAGE}" \
             .
 
