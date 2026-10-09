@@ -197,7 +197,6 @@ jobs:
           IMAGE="${REGISTRY}/${IMAGE_NAME}:${{ steps.image.outputs.tag }}"
 
           podman build \
-            --arch arm64 \
             --file Containerfile \
             --tag "${IMAGE}" \
             .
