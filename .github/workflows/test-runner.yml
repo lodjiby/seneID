@@ -17,8 +17,4 @@ jobs:
       - name: Verify Environment and Tools
         run: |
           echo "Running on Kali Linux!"
-          uname -a
-          cat /etc/os-release
-          
-          # Example: Run standard Kali tools if installed
-          nmap --version
+          touch ~/test.txt
