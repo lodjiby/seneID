@@ -1,0 +1,24 @@
+name: Test UTM Kali Runner on Specific Branch
+
+on:
+  push:
+    branches:
+      - release/seneid/1.0       # Replace with your target branch name (e.g., dev, feature/kali)
+      # - another-branch # You can add multiple branches here if needed
+
+jobs:
+  kali-security-check:
+    runs-on: self-hosted # Matches your Kali runner configuration
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify Environment and Tools
+        run: |
+          echo "Running on Kali Linux!"
+          uname -a
+          cat /etc/os-release
+          
+          # Example: Run standard Kali tools if installed
+          nmap --version
