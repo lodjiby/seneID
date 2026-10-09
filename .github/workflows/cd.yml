@@ -228,10 +228,6 @@ jobs:
   # Self-hosted GitHub Actions runner
   # Kali ARM64 VM
   # Podman + Podman Compose
-  #
-  # NO SSH
-  # NO CLOUDFLARE
-  # NO DEPLOY HOST
   # ============================================================
   deploy:
     name: Deploy to Pre-Production
